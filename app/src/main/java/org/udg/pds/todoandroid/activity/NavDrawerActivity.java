@@ -1,5 +1,6 @@
 package org.udg.pds.todoandroid.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -34,7 +35,9 @@ public class NavDrawerActivity extends AppCompatActivity
                         .setAction("Action", new View.OnClickListener(){
                             @Override
                             public void onClick(View view){
-                                Toast.makeText(NavDrawerActivity.this,"Hola!!",Toast.LENGTH_LONG).show();
+                                // Toast.makeText(NavDrawerActivity.this,"Hola!!",Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(NavDrawerActivity.this, TestActivity.class);
+                                startActivity(i);
                             }
                         }).show();
             }
