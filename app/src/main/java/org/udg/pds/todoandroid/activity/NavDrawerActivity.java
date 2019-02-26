@@ -1,5 +1,6 @@
 package org.udg.pds.todoandroid.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -37,7 +38,9 @@ public class NavDrawerActivity extends AppCompatActivity
                             public void onClick(View view){
                                 // Toast.makeText(NavDrawerActivity.this,"Hola!!",Toast.LENGTH_LONG).show();
                                 Intent i = new Intent(NavDrawerActivity.this, TestActivity.class);
-                                startActivity(i);
+                                //startActivity(i);
+                                //ara esperem un resultat de la activity
+                                startActivityForResult(i,1);
                             }
                         }).show();
             }
@@ -109,4 +112,15 @@ public class NavDrawerActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode == 1){
+            if(resultCode == Activity.RESULT_OK){
+                String result = data.getStringExtra("result");
+                Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
 }
