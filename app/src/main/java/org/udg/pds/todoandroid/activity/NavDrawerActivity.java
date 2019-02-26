@@ -126,4 +126,20 @@ public class NavDrawerActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        TextView tv = (TextView)findViewById(R.id.text_nd);
+        //guardem tot el contingut en memoria
+        savedInstanceState.putString("text_nd", tv.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+        String ndText = savedInstanceState.getString("text_nd");
+        TextView tv = (TextView)findViewById(R.id.text_nd);
+        tv.setText(ndText);
+    }
+
 }
