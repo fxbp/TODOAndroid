@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.udg.pds.todoandroid.R;
@@ -118,7 +119,9 @@ public class NavDrawerActivity extends AppCompatActivity
         if(requestCode == 1){
             if(resultCode == Activity.RESULT_OK){
                 String result = data.getStringExtra("result");
-                Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, result, Toast.LENGTH_LONG).show();
+                TextView tv = (TextView)findViewById(R.id.text_nd);
+                tv.setText(result);
             }
         }
     }
